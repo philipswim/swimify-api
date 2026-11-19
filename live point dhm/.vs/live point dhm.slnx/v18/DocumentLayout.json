@@ -1,0 +1,100 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\phili\\source\\repos\\live point dhm\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FAC18EBD-0A6A-94AF-8CA9-53DB33612F48}|live point dhm\\live point dhm.csproj|c:\\users\\phili\\source\\repos\\live point dhm\\live point dhm\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAC18EBD-0A6A-94AF-8CA9-53DB33612F48}|live point dhm\\live point dhm.csproj|solutionrelative:live point dhm\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAC18EBD-0A6A-94AF-8CA9-53DB33612F48}|live point dhm\\live point dhm.csproj|c:\\users\\phili\\source\\repos\\live point dhm\\live point dhm\\models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAC18EBD-0A6A-94AF-8CA9-53DB33612F48}|live point dhm\\live point dhm.csproj|solutionrelative:live point dhm\\models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAC18EBD-0A6A-94AF-8CA9-53DB33612F48}|live point dhm\\live point dhm.csproj|c:\\users\\phili\\source\\repos\\live point dhm\\live point dhm\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FAC18EBD-0A6A-94AF-8CA9-53DB33612F48}|live point dhm\\live point dhm.csproj|solutionrelative:live point dhm\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Models.cs",
+              "DocumentMoniker": "C:\\Users\\phili\\source\\repos\\live point dhm\\live point dhm\\Models.cs",
+              "RelativeDocumentMoniker": "live point dhm\\Models.cs",
+              "ToolTip": "C:\\Users\\phili\\source\\repos\\live point dhm\\live point dhm\\Models.cs",
+              "RelativeToolTip": "live point dhm\\Models.cs",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAcwHEAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-17T19:56:14.2Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\phili\\source\\repos\\live point dhm\\live point dhm\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "live point dhm\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\phili\\source\\repos\\live point dhm\\live point dhm\\MainWindow.xaml",
+              "RelativeToolTip": "live point dhm\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-11-17T19:55:47.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\phili\\source\\repos\\live point dhm\\live point dhm\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "live point dhm\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\phili\\source\\repos\\live point dhm\\live point dhm\\MainWindow.xaml.cs",
+              "RelativeToolTip": "live point dhm\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAMIAAAAAAAAAAAAiwNYAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-17T19:55:45.514Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+C:\Users\phili\source\repos\live point dhm\live point dhm\bin\Debug\net10.0-windows\live point dhm.exe
+C:\Users\phili\source\repos\live point dhm\live point dhm\bin\Debug\net10.0-windows\live point dhm.deps.json
+C:\Users\phili\source\repos\live point dhm\live point dhm\bin\Debug\net10.0-windows\live point dhm.runtimeconfig.json
+C:\Users\phili\source\repos\live point dhm\live point dhm\bin\Debug\net10.0-windows\live point dhm.dll
+C:\Users\phili\source\repos\live point dhm\live point dhm\bin\Debug\net10.0-windows\live point dhm.pdb
+C:\Users\phili\source\repos\live point dhm\live point dhm\obj\Debug\net10.0-windows\MainWindow.g.cs
+C:\Users\phili\source\repos\live point dhm\live point dhm\obj\Debug\net10.0-windows\App.g.cs
+C:\Users\phili\source\repos\live point dhm\live point dhm\obj\Debug\net10.0-windows\live point dhm_MarkupCompile.cache
+C:\Users\phili\source\repos\live point dhm\live point dhm\obj\Debug\net10.0-windows\live point dhm_MarkupCompile.lref
+C:\Users\phili\source\repos\live point dhm\live point dhm\obj\Debug\net10.0-windows\MainWindow.baml
+C:\Users\phili\source\repos\live point dhm\live point dhm\obj\Debug\net10.0-windows\live point dhm.g.resources
+C:\Users\phili\source\repos\live point dhm\live point dhm\obj\Debug\net10.0-windows\live point dhm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\phili\source\repos\live point dhm\live point dhm\obj\Debug\net10.0-windows\live point dhm.AssemblyInfoInputs.cache
+C:\Users\phili\source\repos\live point dhm\live point dhm\obj\Debug\net10.0-windows\live point dhm.AssemblyInfo.cs
+C:\Users\phili\source\repos\live point dhm\live point dhm\obj\Debug\net10.0-windows\live point dhm.csproj.CoreCompileInputs.cache
+C:\Users\phili\source\repos\live point dhm\live point dhm\obj\Debug\net10.0-windows\live point dhm.dll
+C:\Users\phili\source\repos\live point dhm\live point dhm\obj\Debug\net10.0-windows\refint\live point dhm.dll
+C:\Users\phili\source\repos\live point dhm\live point dhm\obj\Debug\net10.0-windows\live point dhm.pdb
+C:\Users\phili\source\repos\live point dhm\live point dhm\obj\Debug\net10.0-windows\live point dhm.genruntimeconfig.cache
+C:\Users\phili\source\repos\live point dhm\live point dhm\obj\Debug\net10.0-windows\ref\live point dhm.dll
+C:\Users\phili\source\repos\live point dhm\live point dhm\obj\Debug\net10.0-windows\live poi.2BEBAD6D.Up2Date
+C:\Users\phili\source\repos\live point dhm\live point dhm\obj\Debug\net10.0-windows\live point dhm.csproj.AssemblyReference.cache
+C:\Users\phili\source\repos\live point dhm\live point dhm\bin\Debug\net10.0-windows\ClosedXML.dll
+C:\Users\phili\source\repos\live point dhm\live point dhm\bin\Debug\net10.0-windows\ClosedXML.Parser.dll
+C:\Users\phili\source\repos\live point dhm\live point dhm\bin\Debug\net10.0-windows\DocumentFormat.OpenXml.dll
+C:\Users\phili\source\repos\live point dhm\live point dhm\bin\Debug\net10.0-windows\DocumentFormat.OpenXml.Framework.dll
+C:\Users\phili\source\repos\live point dhm\live point dhm\bin\Debug\net10.0-windows\ExcelNumberFormat.dll
+C:\Users\phili\source\repos\live point dhm\live point dhm\bin\Debug\net10.0-windows\RBush.dll
+C:\Users\phili\source\repos\live point dhm\live point dhm\bin\Debug\net10.0-windows\SixLabors.Fonts.dll

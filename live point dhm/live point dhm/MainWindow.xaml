@@ -1,0 +1,223 @@
+﻿<Window x:Class="SwimResultsFetcher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SwimResultsFetcher"
+
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Række 0: IP, Hent-knap og Live Auto-opdatering -->
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Server IP:" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,0,8,0"/>
+            <TextBox x:Name="TxtIpAddress" Text="192.168.0.228" Width="140" Padding="5" VerticalContentAlignment="Center" Margin="0,0,10,0"/>
+
+            <Button x:Name="BtnFetch" Content="Hent Alle Resultater" Padding="15,6" Click="BtnFetch_Click" FontWeight="Bold" Margin="0,0,10,0"/>
+            <Button x:Name="BtnUdpScan" Content="Søg via UDP" Padding="10,6" Click="BtnUdpScan_Click" Margin="0,0,20,0"/>
+
+            <CheckBox x:Name="ChkAutoRefresh" Content="Auto-opdater hvert 30. sek. (Live)" VerticalAlignment="Center" 
+                      FontWeight="SemiBold" Checked="ChkAutoRefresh_Changed" Unchecked="ChkAutoRefresh_Changed"/>
+        </StackPanel>
+
+        <!-- Række 1: Statuslinje -->
+        <TextBlock x:Name="TxtStatus" Grid.Row="1" Text="Indtast IP-adresse og klik 'Hent Alle Resultater'..." Foreground="Gray" Margin="0,0,0,6"/>
+
+        <!-- Række 2: Stævneoverskrift -->
+        <TextBlock x:Name="TxtCompetition" Grid.Row="2" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+
+        <!-- Række 3: Faneblade -->
+        <TabControl Grid.Row="3">
+
+            <!-- FANE 1: Resultater -->
+            <TabItem Header="Resultater" FontSize="14" Padding="12,6">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Filter og løbsvælger -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="Vælg løb:" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,0,8,0"/>
+                        <ComboBox x:Name="CmbEvents" Width="280" Padding="6,5" Margin="0,0,20,0" SelectionChanged="FilterChanged"/>
+
+                        <TextBlock Text="Søg (navn/klub):" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,0,8,0"/>
+                        <TextBox x:Name="TxtFilter" Width="220" Padding="5" VerticalContentAlignment="Center" TextChanged="FilterChanged"/>
+                    </StackPanel>
+
+                    <!-- Resultattabel -->
+                    <DataGrid x:Name="DgResults" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True"
+                              GridLinesVisibility="Horizontal" AlternatingRowBackground="#F7F9FC"
+                              RowHeight="28" HeadersVisibility="Column" FontSize="13">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Løb" Binding="{Binding EventTitle}" Width="240" FontWeight="SemiBold"/>
+                            <DataGridTextColumn Header="Plac." Binding="{Binding Rank}" Width="55"/>
+                            <DataGridTextColumn Header="Navn" Binding="{Binding SwimmerName}" Width="220"/>
+                            <DataGridTextColumn Header="Klub" Binding="{Binding Club}" Width="220"/>
+                            <DataGridTextColumn Header="Tid" Binding="{Binding Time}" Width="90" FontWeight="Bold"/>
+                            <DataGridTextColumn Header="FINA Point" Binding="{Binding FinaPoints}" Width="90"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+
+            <!-- FANE 2: Live Point Scoreboard -->
+            <TabItem Header="Live Point (Top 12)" FontSize="14" Padding="12,6">
+                <Border Background="#0F172A" CornerRadius="8" Padding="15">
+                    <Grid MaxWidth="850" HorizontalAlignment="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Overskrift -->
+                        <TextBlock Text="🏆 TOP 12 KLUBSTILLING — SAMLEDE FINA-POINT" 
+                                   Foreground="White" FontSize="17" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                        <!-- Kolonne-headers -->
+                        <Grid Grid.Row="1" Margin="10,0,10,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="65"/>
+                                <ColumnDefinition Width="320"/>
+                                <ColumnDefinition Width="95"/>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="120"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="PLADS" Foreground="#94A3B8" FontWeight="Bold" FontSize="11"/>
+                            <TextBlock Grid.Column="1" Text="ÆNDRING" Foreground="#94A3B8" FontWeight="Bold" FontSize="11" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Column="2" Text="KLUB" Foreground="#94A3B8" FontWeight="Bold" FontSize="11"/>
+                            <TextBlock Grid.Column="3" Text="STARTER" Foreground="#94A3B8" FontWeight="Bold" FontSize="11" HorizontalAlignment="Right"/>
+                            <TextBlock Grid.Column="4" Text="FINA POINT" Foreground="#94A3B8" FontWeight="Bold" FontSize="11" HorizontalAlignment="Right"/>
+                            <TextBlock Grid.Column="5" Text="DIFF" Foreground="#94A3B8" FontWeight="Bold" FontSize="11" HorizontalAlignment="Right"/>
+                        </Grid>
+
+                        <!-- Liste med Top 12 klubber -->
+                        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+                            <ItemsControl x:Name="IcClubScores">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Background="#1E293B" CornerRadius="5" Margin="0,0,0,4" Padding="10,5">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="50"/>
+                                                    <ColumnDefinition Width="65"/>
+                                                    <ColumnDefinition Width="320"/>
+                                                    <ColumnDefinition Width="95"/>
+                                                    <ColumnDefinition Width="130"/>
+                                                    <ColumnDefinition Width="120"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <!-- Placering med medaljefarve for top 3 -->
+                                                <Border Grid.Column="0" Background="{Binding RankBadgeColor}" 
+                                                        Width="25" Height="25" CornerRadius="13" HorizontalAlignment="Left">
+                                                    <TextBlock Text="{Binding Rank}" Foreground="#0F172A" 
+                                                               FontWeight="ExtraBold" FontSize="13"
+                                                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+
+                                                <!-- Pil op / ned ved ændring -->
+                                                <TextBlock Grid.Column="1" Text="{Binding RankChangeSymbol}" 
+                                                           Foreground="{Binding RankChangeColor}" 
+                                                           FontWeight="Bold" FontSize="13"
+                                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                                <!-- Klubnavn -->
+                                                <TextBlock Grid.Column="2" Text="{Binding Club}" 
+                                                           Foreground="White" FontWeight="SemiBold" FontSize="15"
+                                                           VerticalAlignment="Center" TextTrimming="CharacterEllipsis"/>
+
+                                                <!-- Antal starter -->
+                                                <TextBlock Grid.Column="3" Text="{Binding SwimCount, StringFormat={}{0} løb}" 
+                                                           Foreground="#94A3B8" FontSize="13"
+                                                           HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                                                <!-- Samlede FINA point -->
+                                                <TextBlock Grid.Column="4" Text="{Binding FormattedPoints}" 
+                                                           Foreground="#38BDF8" FontWeight="ExtraBold" FontSize="16"
+                                                           HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                                                <!-- Pointforskel til klubben over -->
+                                                <TextBlock Grid.Column="5" Text="{Binding FormattedDiff}" 
+                                                           Foreground="#F87171" FontWeight="SemiBold" FontSize="14"
+                                                           HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+            </TabItem>
+
+            <TabItem Header="Basistider (Excel)" FontSize="14" Padding="12,6">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <Button x:Name="BtnLoadExcel" Content="Indlæs Excel-fil (.xlsx)" 
+                                Padding="15,6" Click="BtnLoadExcel_Click" FontWeight="Bold" Margin="0,0,15,0"/>
+                        <TextBlock x:Name="TxtExcelStatus" Text="Ingen Excel-fil indlæst (Kolonne A = Løbsnr, Kolonne B = Basistid f.eks. 3:20.78)" 
+                                   VerticalAlignment="Center" Foreground="Gray"/>
+                    </StackPanel>
+
+                    <TextBlock Grid.Row="1" Text="Indlæste basistider (bruges automatisk hvis API'et mangler FINA-point):" 
+                               FontWeight="SemiBold" Margin="0,0,0,8"/>
+
+                    <DataGrid x:Name="DgBaseTimes" Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True"
+                              GridLinesVisibility="Horizontal" AlternatingRowBackground="#F7F9FC"
+                              RowHeight="28" HeadersVisibility="Column" FontSize="13" MaxWidth="500" HorizontalAlignment="Left">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Løbsnr." Binding="{Binding EventNumber}" Width="100" FontWeight="Bold"/>
+                            <DataGridTextColumn Header="Basistid" Binding="{Binding BaseTimeText}" Width="150"/>
+                            <DataGridTextColumn Header="Sekunder" Binding="{Binding BaseTimeSeconds, StringFormat=N2}" Width="150"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="API Videresendelse" FontSize="14" Padding="12,6">
+                <StackPanel Margin="15" MaxWidth="650" HorizontalAlignment="Left">
+                    <TextBlock Text="Automatisk JSON-videresendelse (HTTP POST)" FontSize="16" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <TextBlock Text="Data sendes automatisk, hver gang resultater og klubstilling opdateres. Lad feltet være tomt for at deaktivere." 
+                               Foreground="Gray" TextWrapping="Wrap" Margin="0,0,0,15"/>
+
+                    <CheckBox x:Name="ChkAutoForward" Content="Aktivér automatisk videresendelse ved opdatering" 
+                              IsChecked="True" FontWeight="SemiBold" Margin="0,0,0,15"/>
+
+                    <!-- URL 1: Samlet resultatliste -->
+                    <TextBlock Text="1. API URL til samlet resultatliste (alle løb):" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                    <TextBox x:Name="TxtResultsApiUrl" Padding="6" Margin="0,0,0,15" 
+                             ToolTip="F.eks. https://dit-domaene.dk"/>
+
+                    <!-- URL 2: Samlet klubstilling -->
+                    <TextBlock Text="2. API URL til samlet klubstilling (Live Point):" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                    <TextBox x:Name="TxtStandingsApiUrl" Padding="6" Margin="0,0,0,15" 
+                             ToolTip="F.eks. https://dit-domaene.dk"/>
+
+                    <!-- Manuel send-knap og status -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
+                        <Button x:Name="BtnForwardNow" Content="Send JSON nu" Padding="15,6" 
+                                FontWeight="Bold" Click="BtnForwardNow_Click"/>
+                    </StackPanel>
+
+                    <TextBlock x:Name="TxtForwardStatus" Text="Klar til at sende..." Foreground="#0284C7" TextWrapping="Wrap"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
